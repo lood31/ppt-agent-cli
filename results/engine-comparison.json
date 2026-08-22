@@ -1,0 +1,41 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-08-12",
+  "candidates": {
+    "hands-on-deck": {
+      "commit": "a24b996ecff6393ccf39c4fee2b88c493fb0b693",
+      "license": "MIT",
+      "hard_gates": {
+        "compact_inspect_diff": true,
+        "atomic_patch": true,
+        "offline_core": true,
+        "native_chart_create": false,
+        "animation_create": false,
+        "wps_final_validation": false
+      },
+      "decision": "thin_adapter_plus_wps_com"
+    },
+    "OfficeCLI": {
+      "commit": "459b1a473faf33f2f52e697ac6d265a3f67b176a",
+      "release": "v1.0.143",
+      "license": "Apache-2.0",
+      "hard_gates": {
+        "static_capability_surface": true,
+        "offline_by_default": false,
+        "auto_update_disabled_by_default": false,
+        "local_assets_only": false,
+        "runtime_verified": false
+      },
+      "decision": "reject_for_mvp_default"
+    },
+    "wps-com": {
+      "progid": "KWPP.Application",
+      "animation_persisted": true,
+      "transition_persisted": true,
+      "native_chart_editable": true,
+      "pdf_export": true,
+      "decision": "transaction_finalizer"
+    }
+  },
+  "selected_architecture": "hands-on-deck thin adapter for OOXML plus WPS COM final writer and verifier"
+}

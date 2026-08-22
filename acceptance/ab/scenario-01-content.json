@@ -1,0 +1,13 @@
+{
+  "title": "ppt-agent MVP 验收",
+  "slides": [
+    {"layout": "title", "title": "ppt-agent MVP 验收", "body": ["从能运行，到证明有价值"]},
+    {"layout": "two_column", "title": "为什么要做", "body": ["传统 PPT 工作流把整份结构与 XML 暴露给 Agent", "目标是减少上下文噪声，同时保持 WPS 保真"]},
+    {"layout": "timeline", "title": "事务闭环", "body": ["Inspect：锁定 revision", "Apply：原子生成 candidate", "Render / QA：只检查受影响页面", "Accept：人工确认后提升"]},
+    {"layout": "comparison", "title": "两条工作流", "body": ["原 skill：解包、读 XML、编辑、打包、全量渲染", "ppt-agent：紧凑 inspect、类型化 patch、局部渲染"]},
+    {"layout": "stat", "title": "当前证据", "body": ["11/11 自动测试通过", "52% 总覆盖率", "WPS 动画、图表、PDF、EXE 已跑通"]},
+    {"layout": "title_content", "title": "安全边界", "body": ["原文件永不覆盖", "宏、ActiveX、OLE、外部关系默认阻断", "第三方引擎固定提交且不自动联网"]},
+    {"layout": "quote", "title": "尚不能宣称", "body": ["70% Token 降幅尚未完成六场景 A/B", "真实 PPT 尚未连续试用一周", "当前标签只是可回退 MVP 基线"]},
+    {"layout": "section", "title": "下一步", "body": ["用数据决定 v0.2，不凭想象扩功能"]}
+  ]
+}

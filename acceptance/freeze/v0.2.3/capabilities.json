@@ -1,0 +1,92 @@
+{
+    "schema_version":  "2.1",
+    "ok":  true,
+    "command":  "capabilities",
+    "document_id":  null,
+    "revision":  null,
+    "engine_version":  "hands-on-deck@a24b996",
+    "wps_version":  null,
+    "data":  {
+                 "commands":  [
+                                  "doctor",
+                                  "capabilities",
+                                  "inspect",
+                                  "diff",
+                                  "create",
+                                  "apply",
+                                  "render",
+                                  "qa",
+                                  "template",
+                                  "cache",
+                                  "accept",
+                                  "discard",
+                                  "schema"
+                              ],
+                 "agent_hints":  {
+                                     "operation_schema":  "ppt-agent schema apply --op \u003coperation\u003e",
+                                     "focused_inspect":  "ppt-agent inspect FILE --for edit|content|layout|animation",
+                                     "inspect_fields":  "identity is always returned; x/y/width/height and shape.* aliases are accepted",
+                                     "patch_input":  "prefer: ppt-agent apply FILE --patch patch.json; stdin with - only when the caller reliably preserves stdin",
+                                     "security_risks":  "if inspect reports risks, explicitly pass each authorized type with --allow-risk",
+                                     "qa_fix_suggestions":  "ppt-agent qa FILE --profile presentation --suggest-fixes",
+                                     "do_not_search_source":  true
+                                 },
+                 "operations":  {
+                                    "ooxml":  [
+                                                  "add_col",
+                                                  "add_picture",
+                                                  "add_row",
+                                                  "add_shape",
+                                                  "add_slide",
+                                                  "add_table",
+                                                  "copy_shape",
+                                                  "delete",
+                                                  "delete_col",
+                                                  "delete_row",
+                                                  "duplicate",
+                                                  "move",
+                                                  "reorder",
+                                                  "replace_color",
+                                                  "replace_text",
+                                                  "resize",
+                                                  "set_notes",
+                                                  "set_props",
+                                                  "set_slide",
+                                                  "set_style",
+                                                  "set_text",
+                                                  "set_theme",
+                                                  "swap_image"
+                                              ],
+                                    "wps":  [
+                                                "add_animation",
+                                                "set_chart_title",
+                                                "set_transition"
+                                            ],
+                                    "animations":  [
+                                                       "appear",
+                                                       "fade",
+                                                       "fly_in"
+                                                   ],
+                                    "animation_triggers":  [
+                                                               "on_click",
+                                                               "with_previous",
+                                                               "after_previous"
+                                                           ],
+                                    "transitions":  [
+                                                        "none",
+                                                        "fade",
+                                                        "push",
+                                                        "wipe"
+                                                    ]
+                                },
+                 "unsupported":  [
+                                     "motion_path_animation",
+                                     "word_animation",
+                                     "complex_animation_chain",
+                                     "smartart_edit",
+                                     "media_edit",
+                                     "ole_edit",
+                                     "activex_edit"
+                                 ]
+             }
+}

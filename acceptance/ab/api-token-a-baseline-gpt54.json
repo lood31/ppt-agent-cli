@@ -1,0 +1,213 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-13T16:41:59+08:00",
+  "baseline_run_id": "api-gpt54-final",
+  "codex_cli_version": "codex-cli 0.142.3",
+  "protocol": {
+    "model": "gpt-5.4",
+    "reasoning_effort": "high",
+    "common": "这是一次受控 API Token A/B。只完成指定 PPT 任务，不修改产品源码，不联网，不做额外功能。必须真实调用工具并生成 output.pptx；不得复制已有候选或基准输出。完成后只简短报告输出路径与是否成功。",
+    "tasks": {
+      "01": "依据 content.json 从零制作完整的 8 页 16:9 演讲稿。",
+      "02": "编辑 source.pptx：标题改为 Python 编程作业汇报；三条正文改为目标：实现可靠文件处理、方法：测试驱动迭代、结果：关键用例全部通过；按钮改为课程验收；表格第二行改为测试、11/11、全通过；后三页标题改为模块测试结果、迭代质量趋势、代码模块占比。",
+      "03": "编辑 source.pptx：第一页标题改为 MVP 真实试用记录并右移 0.25 英寸；把第一页现有图片替换为 replacement.png，保持原图片框尺寸。",
+      "04": "审查 broken-source.pptx 的确定性排版问题并修复：越界标题移回页内，8pt 标题改为 32pt；其他内容不变。",
+      "05": "编辑 source.pptx：第一页动画目标形状添加 fade/on_click；第一页三段正文添加 appear/with_previous 的逐段动画。",
+      "06": "比较 before.pptx 与 after.pptx，识别人工修改方向；在 after.pptx 上续改第二页标题为 柱状图｜按人工风格续改，并右移 0.25 英寸。"
+    },
+    "a_rule": "必须使用已安装的 pptx skill 原工作流；创建用 PptxGenJS，编辑用 unpack/edit/clean/pack。禁止调用 ppt-agent。"
+  },
+  "protocol_sha256": "5ed0535853273b0702184c54cf02d25ed585114c49a5a70c912a5103f649dcf0",
+  "scenarios": {
+    "01": {
+      "inputs": [
+        {
+          "name": "content.json",
+          "path": "results/local/token-api/api-gpt54-final/scenario-01/A/content.json",
+          "sha256": "c70542394d3d894dcdbc44c92a2c9252c8f36258a74b9956f5a8984983a48bf9"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-01/A/events.jsonl",
+        "sha256": "14e72d240ce68f7279779b67633f22e665557b46368276cbf53e1ed757dc1763"
+      },
+      "output": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-01/A/output.pptx",
+        "sha256": "b9f40fdd3af6f906dd3fcbc6b1b7ccf5fca75bc381a3fe7aed9833ba108f8d2a"
+      },
+      "usage": {
+        "scenario": "01",
+        "arm": "A",
+        "model": "gpt-5.4",
+        "returncode": 0,
+        "elapsed_seconds": 431.503,
+        "tool_calls": 41,
+        "output_exists": true,
+        "input_tokens": 1674115,
+        "cached_input_tokens": 1539968,
+        "output_tokens": 19088,
+        "reasoning_output_tokens": 7763
+      }
+    },
+    "02": {
+      "inputs": [
+        {
+          "name": "source.pptx",
+          "path": "results/local/token-api/api-gpt54-final/scenario-02/A/source.pptx",
+          "sha256": "38954b12b20245baf76fb944ba2572a6f2c585007cac067182ca732abeada23e"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-02/A/events.jsonl",
+        "sha256": "ae266cdb8f3708ebe1749f2aa3c10fa070e1c428ecc7a25959e19a119a300ea4"
+      },
+      "output": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-02/A/output.pptx",
+        "sha256": "03a546a918c526376ba0ae829c94646548d32b7273139b8863d4bae09a8bbeab"
+      },
+      "usage": {
+        "scenario": "02",
+        "arm": "A",
+        "model": "gpt-5.4",
+        "returncode": 0,
+        "elapsed_seconds": 483.932,
+        "tool_calls": 58,
+        "output_exists": true,
+        "input_tokens": 1602933,
+        "cached_input_tokens": 1495296,
+        "output_tokens": 20381,
+        "reasoning_output_tokens": 8714
+      }
+    },
+    "03": {
+      "inputs": [
+        {
+          "name": "source.pptx",
+          "path": "results/local/token-api/api-gpt54-final/scenario-03/A/source.pptx",
+          "sha256": "38954b12b20245baf76fb944ba2572a6f2c585007cac067182ca732abeada23e"
+        },
+        {
+          "name": "replacement.png",
+          "path": "results/local/token-api/api-gpt54-final/scenario-03/A/replacement.png",
+          "sha256": "156cc84d7332bfe95b310350bd470b690d22aa33d65340cc6c2e06022946194c"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-03/A/events.jsonl",
+        "sha256": "38b3c9eaee831a23a34cc980f49780955fa49651e2c18dd170296025d3224a9d"
+      },
+      "output": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-03/A/output.pptx",
+        "sha256": "3958761fe486d416a81268ddf7fef49ac26a2a216858fb2798641ea55fd35acb"
+      },
+      "usage": {
+        "scenario": "03",
+        "arm": "A",
+        "model": "gpt-5.4",
+        "returncode": 0,
+        "elapsed_seconds": 265.511,
+        "tool_calls": 51,
+        "output_exists": true,
+        "input_tokens": 961365,
+        "cached_input_tokens": 922368,
+        "output_tokens": 10544,
+        "reasoning_output_tokens": 4412
+      }
+    },
+    "04": {
+      "inputs": [
+        {
+          "name": "broken-source.pptx",
+          "path": "results/local/token-api/api-gpt54-final/scenario-04/A/broken-source.pptx",
+          "sha256": "9f1eb1cd5da6e585728044e599ceee0748291d0a7893f50b2fa883b0ce5d7a1d"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-04/A/events.jsonl",
+        "sha256": "c42ba249c4d3afe81f44f11b89fadbf09ed1f52568e1df1ed2c57dd1733b14bc"
+      },
+      "output": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-04/A/output.pptx",
+        "sha256": "f449eea3f7e59d983f254ebea8dbb4b6077f230a0d2cdb34b7f7c3f589f1ec12"
+      },
+      "usage": {
+        "scenario": "04",
+        "arm": "A",
+        "model": "gpt-5.4",
+        "returncode": 0,
+        "elapsed_seconds": 196.381,
+        "tool_calls": 31,
+        "output_exists": true,
+        "input_tokens": 767588,
+        "cached_input_tokens": 715136,
+        "output_tokens": 8327,
+        "reasoning_output_tokens": 3320
+      }
+    },
+    "05": {
+      "inputs": [
+        {
+          "name": "source.pptx",
+          "path": "results/local/token-api/api-gpt54-final/scenario-05/A/source.pptx",
+          "sha256": "38954b12b20245baf76fb944ba2572a6f2c585007cac067182ca732abeada23e"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-05/A/events.jsonl",
+        "sha256": "ac63c6a0c3b95d33e3a60fde8fa27601717403be081fa34227dc56a8883d0e9d"
+      },
+      "output": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-05/A/output.pptx",
+        "sha256": "6385ca863328d0e19aa863cc3a6c1a58dd905afb85d2d226cc80d7862e5143b0"
+      },
+      "usage": {
+        "scenario": "05",
+        "arm": "A",
+        "model": "gpt-5.4",
+        "returncode": 0,
+        "elapsed_seconds": 492.59,
+        "tool_calls": 63,
+        "output_exists": true,
+        "input_tokens": 1526806,
+        "cached_input_tokens": 1440256,
+        "output_tokens": 21286,
+        "reasoning_output_tokens": 6096
+      }
+    },
+    "06": {
+      "inputs": [
+        {
+          "name": "before.pptx",
+          "path": "results/local/token-api/api-gpt54-final/scenario-06/A/before.pptx",
+          "sha256": "38954b12b20245baf76fb944ba2572a6f2c585007cac067182ca732abeada23e"
+        },
+        {
+          "name": "after.pptx",
+          "path": "results/local/token-api/api-gpt54-final/scenario-06/A/after.pptx",
+          "sha256": "bbc1dc1a5f33151c3b0abf9c22d12d567355593ec7ff5d4e850c769949bb71ea"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-06/A/events.jsonl",
+        "sha256": "4e4dd9853f641364f22de42c507d677f0c81c2da2cbb43452c1456de8b908250"
+      },
+      "output": {
+        "path": "results/local/token-api/api-gpt54-final/scenario-06/A/output.pptx",
+        "sha256": "add824489f8ecdea2399fba1cd72234831607ced85a6de9b43689bd49707d99c"
+      },
+      "usage": {
+        "scenario": "06",
+        "arm": "A",
+        "model": "gpt-5.4",
+        "returncode": 0,
+        "elapsed_seconds": 317.242,
+        "tool_calls": 65,
+        "output_exists": true,
+        "input_tokens": 970285,
+        "cached_input_tokens": 926592,
+        "output_tokens": 12699,
+        "reasoning_output_tokens": 3885
+      }
+    }
+  }
+}

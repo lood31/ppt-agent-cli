@@ -1,0 +1,54 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+
+# Build artifacts
+build/
+dist/
+*.egg-info/
+*.exe
+
+# Local configuration and secrets
+.env
+.env.*
+!.env.example
+*.local.toml
+
+# ppt-agent runtime and temporary output
+.ppt-agent/
+*.agent.pptx
+*.agent.candidate.pptx
+*.tmp.pptx
+*.render.pdf
+renders/
+tmp/
+
+# Private or machine-local PoC material
+fixtures/private/
+results/local/
+
+# Local test and runner artifacts
+.tmp-*/
+.uv-cache-*/
+.venv/
+dist/
+audit/local/
+
+# Logs and diagnostics
+*.log
+*.dmp
+diagnostics/
+
+# Editors and Windows
+.idea/
+.vscode/
+Thumbs.db
+Desktop.ini
+~$*

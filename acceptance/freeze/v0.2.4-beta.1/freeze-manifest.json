@@ -1,0 +1,185 @@
+{
+  "freeze_version": "1",
+  "product_version": "0.2.4-beta.1",
+  "python_package_version": "0.2.4b1",
+  "schema_version": "2.1",
+  "engine_version": "hands-on-deck@a24b996",
+  "created_at": "2026-08-21T22:33:15.678119+08:00",
+  "source_tree_sha256": "9c39bd002fe138b22d30574e68399892237170e0c30a4a05a0c596cf9a166869",
+  "exe": {
+    "path": "dist/ppt-agent.exe",
+    "sha256": "7b657b6e37df4f91e9eb1b29cebdb77b082bdc9633a02908944b1ac41d9cfc28",
+    "size": 31963846
+  },
+  "capabilities": {
+    "path": "acceptance/freeze/v0.2.4-beta.1/capabilities.json",
+    "sha256": "c4cb433a91598f2cbca400f6aae7df7d6ba8572803d93d5f8a1d53efd3ebdec0"
+  },
+  "apply_schema": {
+    "path": "acceptance/freeze/v0.2.4-beta.1/apply-schema.json",
+    "sha256": "15fdeb89060a1ec63edf059f7d5b968393478e58e9592473eac13363322449a8"
+  },
+  "source_files": [
+    {
+      "path": "CHANGELOG.md",
+      "sha256": "f8701f5bcbe11410db04755f799de5f82a58b45774104e68f7edf300e50274b4",
+      "size": 1759
+    },
+    {
+      "path": "pyproject.toml",
+      "sha256": "49e3749bc9fa4136fd7cc6b2d16ba19a5702d23861a73ce8bec50ab93899e669",
+      "size": 748
+    },
+    {
+      "path": "README.md",
+      "sha256": "2894070be56a1b9d8592d86a1fab32e5fba52af43fbc22d48e7d92febdb86a13",
+      "size": 9363
+    },
+    {
+      "path": "RELEASE_CHECKLIST.md",
+      "sha256": "a4e1aa78f06b65d914755ddbfa994da8137f410c5bb19a449cab8abd996318a6",
+      "size": 4302
+    },
+    {
+      "path": "src/ppt_agent/__init__.py",
+      "sha256": "515b1b839bc306f8944e0308b396b2cd415e5af5bac963c6fb476be04eef1409",
+      "size": 54
+    },
+    {
+      "path": "src/ppt_agent/cli.py",
+      "sha256": "886c9dc6626d1d20229d602056707f1a774055bb4e74eca61fff579307c43edd",
+      "size": 11391
+    },
+    {
+      "path": "src/ppt_agent/creation.py",
+      "sha256": "0779253b14dea3f8f315919e4d6c552674ffefdee475f54b0e917160e5c0078f",
+      "size": 6233
+    },
+    {
+      "path": "src/ppt_agent/engine.py",
+      "sha256": "f4004971e2ad39ba9ecbcd7873219a1c512e884b38ef248390c9b979f62294f6",
+      "size": 11623
+    },
+    {
+      "path": "src/ppt_agent/errors.py",
+      "sha256": "c1daaba5f9c2ed2530a880a0c5d6451e39e7973ee41dc4226a3ff8ab41a17f86",
+      "size": 337
+    },
+    {
+      "path": "src/ppt_agent/models.py",
+      "sha256": "c6af3ab5f4b4e4b7b4b2c124d7bafa68f2f1b2bb9b246b3399d485f2de90168e",
+      "size": 35541
+    },
+    {
+      "path": "src/ppt_agent/ooxml.py",
+      "sha256": "d5e652f68ac30ff35fad8d33e5793eda5113217823a925f17dbf987f8efe1195",
+      "size": 13248
+    },
+    {
+      "path": "src/ppt_agent/paths.py",
+      "sha256": "d2b39e5e2f7026784a11e8f535b824421770649e593371840710db19973766d7",
+      "size": 2000
+    },
+    {
+      "path": "src/ppt_agent/plan.py",
+      "sha256": "6087ff2cf738a185dd4efea15b55713c522822795cc6b44bd013321d23a47f66",
+      "size": 1633
+    },
+    {
+      "path": "src/ppt_agent/qa.py",
+      "sha256": "7c750626c80a5307d54f4551fcb003cadb4c2838bd7e3d1faba0bcf0b2e94486",
+      "size": 4443
+    },
+    {
+      "path": "src/ppt_agent/service.py",
+      "sha256": "958c8328667e9987252d4492adcc969a7d0004f6a6396807d0f30845066632d0",
+      "size": 40932
+    },
+    {
+      "path": "src/ppt_agent/state.py",
+      "sha256": "65acfe123cae967c4baafbeecc5e6215c5125ce2ba494f7cff60662f64106e5d",
+      "size": 13036
+    },
+    {
+      "path": "src/ppt_agent/txn.py",
+      "sha256": "1f4a7609c05a82b695ea071d4a28ed930a4f0bfc32e07e07e5b823ef2c1bda48",
+      "size": 12367
+    },
+    {
+      "path": "src/ppt_agent/wps.py",
+      "sha256": "7abec4a07e5fff5926aefc858677bfc9912837682dbefc5e372aa535ce71a5b0",
+      "size": 8338
+    },
+    {
+      "path": "THIRD_PARTY_NOTICES.md",
+      "sha256": "ad133ec6db4055a77bb478f0dfb6252951947841d68b43d0f35c2b45118bcb71",
+      "size": 2865
+    },
+    {
+      "path": "tools/build_exe.ps1",
+      "sha256": "e234c0b24ee7c7104911de2417db987d88f1150ef990519ad0f2454584093ae0",
+      "size": 479
+    },
+    {
+      "path": "tools/create_freeze.py",
+      "sha256": "83d4bb4499d46cfb53250e27845502f90545ab1d4b5ab386ec0ad87d8b260075",
+      "size": 3703
+    },
+    {
+      "path": "tools/create_release_zip.py",
+      "sha256": "b7ad8ce75f9b19e43ddad39fbbd110b63801e34e04e2e8a2c682677e358c8e8a",
+      "size": 11780
+    },
+    {
+      "path": "tools/entrypoint.py",
+      "sha256": "5a6dec1d8fa0ae7a459251da103511d809f554f00ff01df378cc2be5bdd1e518",
+      "size": 71
+    },
+    {
+      "path": "tools/install.ps1",
+      "sha256": "7cb2d0d5f643a3d39b3a0c4db25bcd32dadfb636777d645780831455e42b275e",
+      "size": 3106
+    },
+    {
+      "path": "tools/uninstall.ps1",
+      "sha256": "078f53873fd2c6822ea73d2543b560d0128ea7e9034d36797c891551a2507534",
+      "size": 2525
+    },
+    {
+      "path": "tools/version_info.txt",
+      "sha256": "6450931c158ce101a005b635a007cce98f6d273947199bb10020e04d11aeabf1",
+      "size": 786
+    },
+    {
+      "path": "uv.lock",
+      "sha256": "52256a8dd74b889bb024b9991ea3b11603485c8a9f27a2efb4fc7a03413a8c60",
+      "size": 154019
+    },
+    {
+      "path": "vendor/hands_on_deck/deck.py",
+      "sha256": "224d9e365f269102f7ce2bb70162e9813ffb44eb5d0494ddd2bd5e3028279826",
+      "size": 142519
+    },
+    {
+      "path": "vendor/hands_on_deck/inventory.py",
+      "sha256": "0b61c1d0752cab571669cf478c9b7a68d2de10942550d154a2eb477f192c7da3",
+      "size": 41294
+    },
+    {
+      "path": "vendor/hands_on_deck/LICENSE",
+      "sha256": "4a0870f370917b8df17ae1edc7c7a3fa065f7b8067af12fff19e47b64d4f10a6",
+      "size": 1073
+    },
+    {
+      "path": "vendor/hands_on_deck/NOTICE.md",
+      "sha256": "5f611328ca9d5dcf456fb97d760e6e35e011cf45243f83de0d7dcce4ab9ea3b2",
+      "size": 866
+    },
+    {
+      "path": "vendor/hands_on_deck/replace.py",
+      "sha256": "05d63614827f62f9b4eaa7d4055b31c8a3147a9be694923e648cd300ddc72cd6",
+      "size": 13957
+    }
+  ],
+  "git_freeze": false
+}

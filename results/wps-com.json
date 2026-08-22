@@ -1,0 +1,16 @@
+{
+  "date": "2026-08-12",
+  "progid": "KWPP.Application",
+  "installed_wps_version": "12.1.0.26895",
+  "com_version": "12.0",
+  "synthetic_slide_count": 4,
+  "animation_effect": "fade",
+  "animation_effect_type": 10,
+  "animation_persisted_after_reopen": true,
+  "transition_entry_effect": 3849,
+  "transition_persisted_after_reopen": true,
+  "native_chart_title_edit_persisted": true,
+  "pdf_exported": true,
+  "product_e2e_animation_counts_after_reopen": [2, 0, 0, 0],
+  "passed": true
+}

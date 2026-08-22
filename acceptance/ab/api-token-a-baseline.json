@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-08-22T12:59:11+08:00",
+  "baseline_run_id": "api-luna-max-a-v5-full",
+  "codex_cli_version": "codex-cli 0.148.0",
+  "protocol": {
+    "model": "gpt-5.6-luna",
+    "reasoning_effort": "max",
+    "common": "这是一次受控 API Token A/B。只完成指定 PPT 任务，不修改产品源码，不联网，不做额外功能。必须真实调用工具并生成 output.pptx；不得复制已有候选或基准输出。完成后只简短报告输出路径与是否成功。",
+    "tasks": {
+      "01": "依据 content.json 从零制作完整的 8 页 16:9 演讲稿。",
+      "02": "编辑 source.pptx：标题改为 Python 编程作业汇报；三条正文改为目标：实现可靠文件处理、方法：测试驱动迭代、结果：关键用例全部通过；按钮改为课程验收；表格第二行改为测试、11/11、全通过；后三页标题改为模块测试结果、迭代质量趋势、代码模块占比。",
+      "03": "编辑 source.pptx：第一页标题改为 MVP 真实试用记录并右移 0.25 英寸；把第一页现有图片替换为 replacement.png，保持原图片框尺寸。",
+      "04": "审查 broken-source.pptx 的确定性排版问题并修复：越界标题移回页内，8pt 标题改为 32pt；其他内容不变。",
+      "05": "编辑 source.pptx：第一页动画目标形状添加 fade/on_click；第一页三段正文添加 appear/with_previous 的逐段动画。",
+      "06": "比较 before.pptx 与 after.pptx，识别人工修改方向；在 after.pptx 上续改第二页标题为 柱状图｜按人工风格续改，并右移 0.25 英寸。"
+    },
+    "a_rule": "必须只使用已安装的 pptx skill 原工作流；创建用 PptxGenJS，编辑用 unpack/edit/clean/pack。运行 skill 的 Python 脚本时直接使用 D:\\Libre offer-cli\\ppt-agent-cli-main\\.venv\\Scripts\\python.exe，不要搜索或猜测解释器。内容 QA 只用该解释器中已安装的 python-pptx；markitdown 未安装，不要调用。视觉 QA 在 PowerShell 直接运行 & 'D:\\Libre offer-cli\\ppt-agent-cli-main\\.venv\\Scripts\\python.exe' 'C:\\Users\\ASUS\\.codex\\skills\\anthropics-skills-pptx\\scripts\\thumbnail.py' output.pptx thumbnails --cols 4；路径引号不可省略；不要直接调用 pdftoppm，不要查找其他渲染器或 Python。除当前场景输入和已安装 pptx skill 文档/脚本外，禁止读取项目 README、DESIGN、POC_PLAN、agent.md、acceptance、results、memory、ppt-agent 源码/测试/Schema/可执行文件或其他实验输出；禁止调用 ppt-agent；禁止递归搜索项目目录。"
+  },
+  "protocol_sha256": "3790d550001204e613d1f5f1e3f4de817889031dea812af1d42240e25d104b2c",
+  "scenarios": {
+    "01": {
+      "inputs": [
+        {
+          "name": "content.json",
+          "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-01/A/content.json",
+          "sha256": "c70542394d3d894dcdbc44c92a2c9252c8f36258a74b9956f5a8984983a48bf9"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-01/A/events.jsonl",
+        "sha256": "b439e3c74c05fe3817e02349cfc6e150c82269bd3baadebf4f30f205b9f33797"
+      },
+      "output": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-01/A/output.pptx",
+        "sha256": "da544c01360a444a9d241de5da60f203330c3a3c59fb58bf2fc00bad9a4f7a07"
+      },
+      "usage": {
+        "scenario": "01",
+        "arm": "A",
+        "model": "gpt-5.6-luna",
+        "returncode": 0,
+        "timed_out": false,
+        "timeout_seconds": 1200,
+        "elapsed_seconds": 446.534,
+        "tool_calls": 16,
+        "turn_completed_events": 1,
+        "output_exists": true,
+        "input_tokens": 947708,
+        "cached_input_tokens": 892416,
+        "output_tokens": 20578,
+        "reasoning_output_tokens": 8315
+      }
+    },
+    "02": {
+      "inputs": [
+        {
+          "name": "source.pptx",
+          "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-02/A/source.pptx",
+          "sha256": "38954b12b20245baf76fb944ba2572a6f2c585007cac067182ca732abeada23e"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-02/A/events.jsonl",
+        "sha256": "fb56a95b54158e5edc32c5e675fbc8aeadaedd307963e51e31c43ee7145b4395"
+      },
+      "output": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-02/A/output.pptx",
+        "sha256": "53e47b2f87409cdd6b49f6bdcfa25d84fc7e2b0355a6ea0affd0a2e916d42879"
+      },
+      "usage": {
+        "scenario": "02",
+        "arm": "A",
+        "model": "gpt-5.6-luna",
+        "returncode": 0,
+        "timed_out": false,
+        "timeout_seconds": 1200,
+        "elapsed_seconds": 336.981,
+        "tool_calls": 22,
+        "turn_completed_events": 1,
+        "output_exists": true,
+        "input_tokens": 1025339,
+        "cached_input_tokens": 946432,
+        "output_tokens": 11445,
+        "reasoning_output_tokens": 5830
+      }
+    },
+    "03": {
+      "inputs": [
+        {
+          "name": "source.pptx",
+          "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-03/A/source.pptx",
+          "sha256": "38954b12b20245baf76fb944ba2572a6f2c585007cac067182ca732abeada23e"
+        },
+        {
+          "name": "replacement.png",
+          "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-03/A/replacement.png",
+          "sha256": "156cc84d7332bfe95b310350bd470b690d22aa33d65340cc6c2e06022946194c"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-03/A/events.jsonl",
+        "sha256": "2447ff008f69d835bdfaade715d2754748e94d1d36eee4b96a29d2cbe9521114"
+      },
+      "output": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-03/A/output.pptx",
+        "sha256": "bf437144e9f6c040cac6b539a89e1ae1f371025c61e25e473eaaa63943d91ee8"
+      },
+      "usage": {
+        "scenario": "03",
+        "arm": "A",
+        "model": "gpt-5.6-luna",
+        "returncode": 0,
+        "timed_out": false,
+        "timeout_seconds": 1200,
+        "elapsed_seconds": 223.548,
+        "tool_calls": 14,
+        "turn_completed_events": 1,
+        "output_exists": true,
+        "input_tokens": 664718,
+        "cached_input_tokens": 624384,
+        "output_tokens": 8356,
+        "reasoning_output_tokens": 4844
+      }
+    },
+    "04": {
+      "inputs": [
+        {
+          "name": "broken-source.pptx",
+          "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-04/A/broken-source.pptx",
+          "sha256": "9f1eb1cd5da6e585728044e599ceee0748291d0a7893f50b2fa883b0ce5d7a1d"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-04/A/events.jsonl",
+        "sha256": "bf647399885d19e028a4ba9ee0fe6e372d99cf165f5261a0e572f1ff00212485"
+      },
+      "output": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-04/A/output.pptx",
+        "sha256": "ecaccd46d4fa3629e998efdef8e15dcf304191bf91308ed1a0b8d3213ed50741"
+      },
+      "usage": {
+        "scenario": "04",
+        "arm": "A",
+        "model": "gpt-5.6-luna",
+        "returncode": 0,
+        "timed_out": false,
+        "timeout_seconds": 1200,
+        "elapsed_seconds": 254.063,
+        "tool_calls": 17,
+        "turn_completed_events": 1,
+        "output_exists": true,
+        "input_tokens": 710625,
+        "cached_input_tokens": 667904,
+        "output_tokens": 9780,
+        "reasoning_output_tokens": 5650
+      }
+    },
+    "05": {
+      "inputs": [
+        {
+          "name": "source.pptx",
+          "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-05/A/source.pptx",
+          "sha256": "38954b12b20245baf76fb944ba2572a6f2c585007cac067182ca732abeada23e"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-05/A/events.jsonl",
+        "sha256": "f67e3fc9fe8742932c3533c2d5e836d4ebac6e0aa2b827bdcd1c4a3ccb0ec168"
+      },
+      "output": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-05/A/output.pptx",
+        "sha256": "377c03e1fe20e98c4fa42396bb0c88f0e10de659e8c4053f13bef19d925eac03"
+      },
+      "usage": {
+        "scenario": "05",
+        "arm": "A",
+        "model": "gpt-5.6-luna",
+        "returncode": 0,
+        "timed_out": false,
+        "timeout_seconds": 1200,
+        "elapsed_seconds": 420.562,
+        "tool_calls": 19,
+        "turn_completed_events": 1,
+        "output_exists": true,
+        "input_tokens": 901146,
+        "cached_input_tokens": 819200,
+        "output_tokens": 17062,
+        "reasoning_output_tokens": 11427
+      }
+    },
+    "06": {
+      "inputs": [
+        {
+          "name": "before.pptx",
+          "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-06/A/before.pptx",
+          "sha256": "38954b12b20245baf76fb944ba2572a6f2c585007cac067182ca732abeada23e"
+        },
+        {
+          "name": "after.pptx",
+          "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-06/A/after.pptx",
+          "sha256": "bbc1dc1a5f33151c3b0abf9c22d12d567355593ec7ff5d4e850c769949bb71ea"
+        }
+      ],
+      "events": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-06/A/events.jsonl",
+        "sha256": "2a058b774cfd6c7c2f22b287940c7ee96cadc08c91d0d3f246d815eb2c392054"
+      },
+      "output": {
+        "path": "results/local/token-api/api-luna-max-a-v5-full/scenario-06/A/output.pptx",
+        "sha256": "768b7c0128866da5803bfc385c21cd1be705c50395e3f2b38708607cc9d3264e"
+      },
+      "usage": {
+        "scenario": "06",
+        "arm": "A",
+        "model": "gpt-5.6-luna",
+        "returncode": 0,
+        "timed_out": false,
+        "timeout_seconds": 1200,
+        "elapsed_seconds": 364.366,
+        "tool_calls": 20,
+        "turn_completed_events": 1,
+        "output_exists": true,
+        "input_tokens": 890065,
+        "cached_input_tokens": 832384,
+        "output_tokens": 13408,
+        "reasoning_output_tokens": 7499
+      }
+    }
+  }
+}
