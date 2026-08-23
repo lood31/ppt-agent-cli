@@ -12,6 +12,7 @@ venv/
 # Build artifacts
 build/
 dist/
+*.spec
 *.egg-info/
 *.exe
 
@@ -42,6 +43,7 @@ dist/
 audit/local/
 
 # Logs and diagnostics
+.learnings/
 *.log
 *.dmp
 diagnostics/

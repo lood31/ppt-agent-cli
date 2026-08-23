@@ -17,8 +17,12 @@ from tools.create_release_zip import (
 def test_current_closure_has_vendor_and_dependency_license_texts() -> None:
     items = collect_licenses(ROOT)
     paths = {item.archive_path for item in items}
+    assert "LICENSE" in paths
     assert "vendor/hands_on_deck/LICENSE" in paths
     assert "vendor/hands_on_deck/NOTICE.md" in paths
+    assert any("/attrs-" in f"/{path}" for path in paths)
+    assert any("/packaging-" in f"/{path}" for path in paths)
+    assert any("/setuptools-" in f"/{path}" for path in paths)
     assert len([path for path in paths if path.startswith("licenses/")]) >= 23
 
 
@@ -32,16 +36,17 @@ def test_missing_distribution_license_fails_closed(tmp_path: Path) -> None:
         package_license_files("fake-package", lambda _name: FakeDistribution())
 
 
-def test_candidate_zip_contains_exact_vendor_paths_and_license_manifest(tmp_path: Path) -> None:
+def test_release_zip_contains_root_and_vendor_licenses(tmp_path: Path) -> None:
     output = tmp_path / "candidate.zip"
-    result = build_release_zip(ROOT, output)
-    assert result["root_license_included"] is False
+    result = build_release_zip(ROOT, output, require_root_license=True)
+    assert result["root_license_included"] is True
     assert result["license_file_count"] >= 23
 
     import zipfile
 
     with zipfile.ZipFile(output) as archive:
         names = set(archive.namelist())
+        assert "LICENSE" in names
         assert "vendor/hands_on_deck/LICENSE" in names
         assert "vendor/hands_on_deck/NOTICE.md" in names
         assert "THIRD_PARTY_NOTICES.md" in names

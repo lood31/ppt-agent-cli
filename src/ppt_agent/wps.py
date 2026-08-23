@@ -10,7 +10,8 @@ from .errors import PptAgentError
 
 EFFECTS = {"appear": 1, "fly_in": 2, "fade": 10}
 TRIGGERS = {"on_click": 1, "with_previous": 2, "after_previous": 3}
-TRANSITIONS = {"none": 0, "fade": 3849, "push": 3850, "wipe": 3852}
+# PpEntryEffect values.  In particular, 3852 is Push Down rather than Wipe.
+TRANSITIONS = {"none": 0, "fade": 3849, "push": 3850, "wipe": 2820}
 
 
 def _client():

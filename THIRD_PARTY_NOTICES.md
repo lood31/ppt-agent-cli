@@ -2,7 +2,7 @@
 
 本清单基于 `uv.lock` 和当前 Python 3.12 Windows 构建环境中的包元数据生成。版本与许可证标识必须在每次发布构建后重新核对；若发布包中的组件集合变化，本文件也必须同步更新。
 
-这不是本项目自身许可证。本项目根许可证仍需由版权所有者明确选择并放入发行包。
+这不是本项目自身许可证。本项目采用 MIT 许可证，完整文本见根目录 `LICENSE`。
 
 ## Vendored runtime engine
 
@@ -44,10 +44,13 @@
 | PyInstaller | 6.22.0 | GPL-2.0-or-later with the PyInstaller bootloader exception permitting distribution of non-free programs |
 | pyinstaller-hooks-contrib | 2026.6 | Multi-license collection; authoritative terms are in its installed `LICENSE` file |
 | altgraph | 0.17.5 | MIT |
+| attrs | 26.1.0 | MIT |
+| packaging | 26.3 | Apache-2.0 or BSD-2-Clause |
 | pefile | 2024.8.26 | MIT |
 | pywin32-ctypes | 0.2.3 | BSD-3-Clause text |
+| setuptools | 84.0.0 | MIT |
 
-PyInstaller 是构建工具；其 bootloader 和运行时钩子可能进入单文件 EXE。发布审计必须保留 PyInstaller 的特殊例外及 community hooks 的实际许可证文件，不能只保留本摘要。
+PyInstaller 是构建工具；其 bootloader、运行时钩子及钩子引入的 `attrs` / `packaging` / `setuptools` 模块进入了当前单文件 EXE。发布审计必须保留这些组件的完整许可证文本，不能只保留本摘要。
 
 ## Distribution requirement
 
@@ -59,4 +62,3 @@ PyInstaller 是构建工具；其 bootloader 和运行时钩子可能进入单�
 - 实际进入 EXE 的第三方组件所要求保留的完整许可证与版权声明。
 
 本文件是可审计的组件索引，不替代各许可证要求的完整文本。构建后应检查 PyInstaller 分析结果并与本清单对账，避免遗漏隐式打包组件。
-

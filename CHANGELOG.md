@@ -6,6 +6,8 @@
 
 ### Fixed
 
+- `accept` 现在只接受规范的 `.agent.candidate.pptx` 候选路径，避免误将原件或已接受工作版移动、删除。
+- 修正 WPS 的 `wipe` 切换常量，不再错误保存为 `push down`。
 - 事务日志改为严格校验 `status`、`action`、必需 revision 与派生临时路径，损坏或被篡改的 WAL 会 fail closed，不再猜测恢复动作。
 - 收紧 Agent 调用协议的结构化纠错，保留 revision、candidate、review token 与显式风险授权边界。
 - `doctor` 将 PDF 渲染器纳入健康门槛，并返回结构化 WPS 探测错误。

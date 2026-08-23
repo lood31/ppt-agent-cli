@@ -529,6 +529,13 @@ def render(path: Path, *, dpi: int = 96, pages: str | None = None, allow_risk: s
 def accept(candidate: Path, expected_revision: str, review_token: str, *, accept_qa_errors: bool = False) -> dict[str, Any]:
     candidate = canonical_path(candidate)
     source = source_path(candidate)
+    if candidate != candidate_path(source):
+        raise PptAgentError(
+            "INVALID_CANDIDATE_PATH",
+            "accept 仅接受 .agent.candidate.pptx 候选文件",
+            "use_candidate_path",
+            details={"document_unchanged": True},
+        )
     doc_id = document_id(source)
     accepted = accepted_path(source)
     with write_transaction(source) as store:

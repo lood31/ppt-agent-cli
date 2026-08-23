@@ -7,6 +7,7 @@ name = "ppt-agent-cli"
 version = "0.2.4b1"
 description = "WPS-first, agent-native PPTX command line adapter"
 readme = "README.md"
+license = { file = "LICENSE" }
 requires-python = ">=3.12"
 dependencies = [
   "Pillow>=11,<13",
