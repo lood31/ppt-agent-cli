@@ -113,6 +113,44 @@ def test_wps_reopen_starts_after_writer_application_exits(
     assert reopen_depths == [0]
 
 
+def test_wps_transition_names_use_their_matching_effect_families(
+    monkeypatch: pytest.MonkeyPatch, tmp_path: Path
+) -> None:
+    from contextlib import contextmanager
+    from ppt_agent import wps
+
+    transition = type("Transition", (), {"EntryEffect": 0})()
+    slide = type("Slide", (), {"SlideShowTransition": transition})()
+    presentation = type(
+        "Presentation",
+        (),
+        {
+            "Slides": lambda self, index: slide,
+            "Save": lambda self: None,
+            "Close": lambda self: None,
+        },
+    )()
+    app = type(
+        "App",
+        (),
+        {"Presentations": type("Presentations", (), {"Open": lambda self, *args: presentation})()},
+    )()
+
+    @contextmanager
+    def fake_application():
+        yield app
+
+    monkeypatch.setattr(wps, "wps_application", fake_application)
+    monkeypatch.setattr(wps, "reopen_verify", lambda path: {"wps_version": "test", "slide_count": 1})
+
+    for name, expected in (("push", 3850), ("wipe", 2820)):
+        wps.apply_wps_operations(
+            tmp_path / "deck.pptx",
+            [{"op": "set_transition", "slide": 0, "transition": name}],
+        )
+        assert transition.EntryEffect == expected
+
+
 def test_cli_usage_error_is_structured_json(capsys: pytest.CaptureFixture[str]) -> None:
     with pytest.raises(SystemExit) as caught:
         cli.main(["inspect"])

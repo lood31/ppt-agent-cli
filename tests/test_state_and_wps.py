@@ -297,6 +297,52 @@ def test_accept_requires_matching_review_token(deck: Path) -> None:
     assert not accepted_path(deck).exists()
 
 
+def test_accept_rejects_original_and_accepted_paths_without_changes(deck: Path) -> None:
+    original = deck.read_bytes()
+    accepted = accepted_path(deck)
+    shutil.copy2(deck, accepted)
+
+    for invalid_path in (deck, accepted):
+        with pytest.raises(PptAgentError) as caught:
+            service.accept(invalid_path, revision(invalid_path), "unused")
+
+        assert caught.value.code == "INVALID_CANDIDATE_PATH"
+        assert caught.value.next_action == "use_candidate_path"
+        assert caught.value.details == {"document_unchanged": True}
+
+    assert deck.read_bytes() == original
+    assert accepted.read_bytes() == original
+    assert not candidate_path(deck).exists()
+
+
+def test_accept_rejects_missing_candidate_without_changes(deck: Path) -> None:
+    original = deck.read_bytes()
+    candidate = candidate_path(deck)
+
+    with pytest.raises(PptAgentError) as caught:
+        service.accept(candidate, "sha256:missing", "unused")
+
+    assert caught.value.code == "FILE_NOT_FOUND"
+    assert deck.read_bytes() == original
+    assert not candidate.exists()
+    assert not accepted_path(deck).exists()
+
+
+def test_accept_rejects_revision_conflict_without_changes(deck: Path) -> None:
+    original = deck.read_bytes()
+    candidate = candidate_path(deck)
+    shutil.copy2(deck, candidate)
+    candidate_before = candidate.read_bytes()
+
+    with pytest.raises(PptAgentError) as caught:
+        service.accept(candidate, "sha256:stale", "unused")
+
+    assert caught.value.code == "REVISION_CONFLICT"
+    assert deck.read_bytes() == original
+    assert candidate.read_bytes() == candidate_before
+    assert not accepted_path(deck).exists()
+
+
 def test_accept_promotes_candidate_and_discard_removes_it(deck: Path) -> None:
     candidate = candidate_path(deck)
     shutil.copy2(deck, candidate)

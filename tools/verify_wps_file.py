@@ -42,6 +42,7 @@ def verify(path: Path) -> dict[str, object]:
         with contextlib.suppress(Exception): app.DisplayAlerts = 0
         presentation = app.Presentations.Open(str(path.resolve()), True, False, False)
         animation_counts = [int(presentation.Slides(index).TimeLine.MainSequence.Count) for index in range(1, presentation.Slides.Count + 1)]
+        transitions = [int(presentation.Slides(index).SlideShowTransition.EntryEffect) for index in range(1, presentation.Slides.Count + 1)]
         animations = []
         for slide_index in range(1, presentation.Slides.Count + 1):
             sequence = presentation.Slides(slide_index).TimeLine.MainSequence
@@ -67,6 +68,7 @@ def verify(path: Path) -> dict[str, object]:
             "wps_version": str(app.Version),
             "slide_count": int(presentation.Slides.Count),
             "animation_counts": animation_counts,
+            "transitions": transitions,
             "animations": animations,
             "paragraph_ranges": _paragraph_ranges(path.resolve()),
             "chart_titles": chart_titles,

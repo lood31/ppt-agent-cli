@@ -4,12 +4,12 @@
   "python_package_version": "0.2.4b1",
   "schema_version": "2.1",
   "engine_version": "hands-on-deck@a24b996",
-  "created_at": "2026-08-21T22:33:15.678119+08:00",
-  "source_tree_sha256": "9c39bd002fe138b22d30574e68399892237170e0c30a4a05a0c596cf9a166869",
+  "created_at": "2026-08-23T14:13:41.537880+08:00",
+  "source_tree_sha256": "ef8cd6512891a18d1bb4b5b483d30e64af243ee36ffbddcd32aeef4eb923439a",
   "exe": {
     "path": "dist/ppt-agent.exe",
-    "sha256": "7b657b6e37df4f91e9eb1b29cebdb77b082bdc9633a02908944b1ac41d9cfc28",
-    "size": 31963846
+    "sha256": "1367498405cdb747ce877a3ff9872c14bd4609d8771238b40cb8712fb1a8ef3e",
+    "size": 31965026
   },
   "capabilities": {
     "path": "acceptance/freeze/v0.2.4-beta.1/capabilities.json",
@@ -22,18 +22,23 @@
   "source_files": [
     {
       "path": "CHANGELOG.md",
-      "sha256": "f8701f5bcbe11410db04755f799de5f82a58b45774104e68f7edf300e50274b4",
-      "size": 1759
+      "sha256": "27980da614ad4ecf828e801a22961b2c18f8eb90ccc6f977b746c617807498b2",
+      "size": 1968
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "c7abe21e64136c3b6c3b2570b925710ac11e9c3d1ded3ee958809901338b4651",
+      "size": 1083
     },
     {
       "path": "pyproject.toml",
-      "sha256": "49e3749bc9fa4136fd7cc6b2d16ba19a5702d23861a73ce8bec50ab93899e669",
-      "size": 748
+      "sha256": "e1f820917fc7c7ce935e7f0b6a1ddb8466c247e83fc6a28ec93f3ba469c0c9e7",
+      "size": 779
     },
     {
       "path": "README.md",
-      "sha256": "2894070be56a1b9d8592d86a1fab32e5fba52af43fbc22d48e7d92febdb86a13",
-      "size": 9363
+      "sha256": "4fd0066ac3ff8b80e92c167fe4d933ae00159105a0caa3ddc8dd77f893f6f2ff",
+      "size": 9731
     },
     {
       "path": "RELEASE_CHECKLIST.md",
@@ -92,13 +97,13 @@
     },
     {
       "path": "src/ppt_agent/service.py",
-      "sha256": "958c8328667e9987252d4492adcc969a7d0004f6a6396807d0f30845066632d0",
-      "size": 40932
+      "sha256": "110975f982ce0c041a0ce9075554032e9996b529aec7a28d524999e3c43e93d0",
+      "size": 41204
     },
     {
       "path": "src/ppt_agent/state.py",
-      "sha256": "65acfe123cae967c4baafbeecc5e6215c5125ce2ba494f7cff60662f64106e5d",
-      "size": 13036
+      "sha256": "a96b2304e60bce6251828b58975487abe491e2be801f86ac09eea3bc0264dcc4",
+      "size": 13348
     },
     {
       "path": "src/ppt_agent/txn.py",
@@ -107,13 +112,13 @@
     },
     {
       "path": "src/ppt_agent/wps.py",
-      "sha256": "7abec4a07e5fff5926aefc858677bfc9912837682dbefc5e372aa535ce71a5b0",
-      "size": 8338
+      "sha256": "5f51e5032a610823e345f784c6dfd8d02ebdc65d423badf1a1e4b1fd66bcd5c9",
+      "size": 8414
     },
     {
       "path": "THIRD_PARTY_NOTICES.md",
-      "sha256": "ad133ec6db4055a77bb478f0dfb6252951947841d68b43d0f35c2b45118bcb71",
-      "size": 2865
+      "sha256": "275b0f0583252d1d78dbbee69129e320b2eb3b9b2ff04885972db320705c19ec",
+      "size": 2988
     },
     {
       "path": "tools/build_exe.ps1",
@@ -122,13 +127,18 @@
     },
     {
       "path": "tools/create_freeze.py",
-      "sha256": "83d4bb4499d46cfb53250e27845502f90545ab1d4b5ab386ec0ad87d8b260075",
-      "size": 3703
+      "sha256": "cf82090e81bd858f2de1fb92b2a8054268e96a658680df228c1a9aacb97ecad0",
+      "size": 3766
     },
     {
       "path": "tools/create_release_zip.py",
-      "sha256": "b7ad8ce75f9b19e43ddad39fbbd110b63801e34e04e2e8a2c682677e358c8e8a",
-      "size": 11780
+      "sha256": "6283d250f2582c6b94ef8169d4610992076ef2ad6e32b10d38f900913b593853",
+      "size": 11828
+    },
+    {
+      "path": "tools/create_synthetic.py",
+      "sha256": "44f0888b43d95752efe8c1b4c6991a97b354aa0510faecd9d8980f574aeaca32",
+      "size": 4493
     },
     {
       "path": "tools/entrypoint.py",
@@ -141,14 +151,29 @@
       "size": 3106
     },
     {
+      "path": "tools/run_api_token_ab.py",
+      "sha256": "c2ed66f647c55eb5ba71e6065476efb8dd37a5b648e7990c8c06b2e8d6fb1949",
+      "size": 24717
+    },
+    {
       "path": "tools/uninstall.ps1",
       "sha256": "078f53873fd2c6822ea73d2543b560d0128ea7e9034d36797c891551a2507534",
       "size": 2525
     },
     {
+      "path": "tools/verify_wps_file.py",
+      "sha256": "1a4ffc5c9735f7fc7e8024a31abdbf13b49829c8f1fd58444da6ca4582cba560",
+      "size": 3679
+    },
+    {
       "path": "tools/version_info.txt",
       "sha256": "6450931c158ce101a005b635a007cce98f6d273947199bb10020e04d11aeabf1",
       "size": 786
+    },
+    {
+      "path": "tools/wps_com_poc.py",
+      "sha256": "35c2cbc416bef714c2cda73db7a14837faf4d1e448a9b401cf6d6b361e9b7961",
+      "size": 3735
     },
     {
       "path": "uv.lock",

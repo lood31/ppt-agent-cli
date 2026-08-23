@@ -108,6 +108,30 @@ def test_corrupted_lock_file_is_treated_as_stale(store: StateStore) -> None:
     assert not store.lock_path.exists()
 
 
+def test_guard_release_retries_transient_windows_share_violation(
+    store: StateStore, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    store.lock_path.parent.mkdir(parents=True, exist_ok=True)
+    token = "guard-owner"
+    descriptor = store._acquire_guard(token, time.monotonic() + 1)
+    assert descriptor is not None
+    original_unlink = Path.unlink
+    attempts = 0
+
+    def transient_failure(path: Path, *args, **kwargs) -> None:
+        nonlocal attempts
+        if path == store.guard_path and attempts == 0:
+            attempts += 1
+            raise PermissionError(32, "sharing violation", str(path))
+        original_unlink(path, *args, **kwargs)
+
+    monkeypatch.setattr(Path, "unlink", transient_failure)
+    store._release_guard(descriptor, token)
+
+    assert attempts == 1
+    assert not store.guard_path.exists()
+
+
 def test_holder_does_not_delete_successor_lock(store: StateStore) -> None:
     store.lock_path.parent.mkdir(parents=True, exist_ok=True)
     first = store.lock_path

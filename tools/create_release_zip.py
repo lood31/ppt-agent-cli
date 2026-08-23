@@ -49,8 +49,11 @@ BUILD_PACKAGES = (
     "PyInstaller",
     "pyinstaller-hooks-contrib",
     "altgraph",
+    "attrs",
+    "packaging",
     "pefile",
     "pywin32-ctypes",
+    "setuptools",
 )
 ALL_PACKAGES = RUNTIME_PACKAGES + BUILD_PACKAGES
 

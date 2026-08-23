@@ -43,6 +43,7 @@ def main() -> None:
     )
 
     fixed = [
+        "LICENSE",
         "pyproject.toml",
         "uv.lock",
         "README.md",
@@ -52,10 +53,14 @@ def main() -> None:
         "tools/build_exe.ps1",
         "tools/create_freeze.py",
         "tools/create_release_zip.py",
+        "tools/create_synthetic.py",
         "tools/entrypoint.py",
         "tools/install.ps1",
+        "tools/run_api_token_ab.py",
         "tools/uninstall.ps1",
+        "tools/verify_wps_file.py",
         "tools/version_info.txt",
+        "tools/wps_com_poc.py",
     ]
     paths = [ROOT / item for item in fixed]
     paths += sorted((ROOT / "src" / "ppt_agent").glob("*.py"))
@@ -97,9 +102,8 @@ def main() -> None:
     )
     (FREEZE / "README.md").write_text(
         "# v0.2.4-beta.1 release-candidate freeze\n\n"
-        "This is a content-addressed release-candidate freeze. It is not a Git tag because "
-        "the copied project has no independent Git metadata. Public release remains blocked "
-        "until licensing, Git provenance, live Agent stability, and real-deck trials pass.\n",
+        "This is a content-addressed release-candidate freeze, not a public release tag. "
+        "Public release remains blocked until every gate in RELEASE_CHECKLIST.md passes.\n",
         encoding="utf-8",
     )
     print(json.dumps(manifest, ensure_ascii=False))

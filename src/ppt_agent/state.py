@@ -275,12 +275,19 @@ class StateStore:
 
     def _release_guard(self, descriptor: int, token: str) -> None:
         os.close(descriptor)
-        content = _read_json_lenient(self.guard_path, None)
-        if isinstance(content, dict) and content.get("token") == token:
+        for _ in range(50):
+            content = _read_json_lenient(self.guard_path, None)
+            if not isinstance(content, dict) or content.get("token") != token:
+                return
             try:
                 self.guard_path.unlink()
+                return
             except FileNotFoundError:
-                pass
+                return
+            except PermissionError:
+                # Windows readers can briefly deny deletion after the owner
+                # closes its descriptor. Retain token ownership across retries.
+                time.sleep(0.01)
 
     def _takeover_if_stale(self, token: str) -> bool:
         """Guard-serialized takeover.
